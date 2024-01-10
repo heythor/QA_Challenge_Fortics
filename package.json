@@ -1,0 +1,12 @@
+{
+  "name": "qa_challenge_fortics",
+  "version": "1.0.0",
+  "description": "QA challenge from Fortics company, Swag Labs system",
+  "main": "LoginPage.js",
+  "author": "HeitorPeixoto",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.6.2",
+    "webpack": "^5.88.1"
+  }
+}
