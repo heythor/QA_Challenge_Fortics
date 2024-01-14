@@ -5,7 +5,7 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-    pageLoadTimeout: 4000,
+    //pageLoadTimeout: 3000,
     //taskTimeout: 4000
   },
 });

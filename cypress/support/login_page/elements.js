@@ -9,8 +9,4 @@ export const ELEMENTS = {
     passwordField : '[data-test="password"]',
     btnLogin : '#login-button',
     error : '[data-test="error"]'
-
-
-
-
 }

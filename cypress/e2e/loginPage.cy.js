@@ -5,29 +5,16 @@ import LoginPage from '../support/login_page/actions'
 const loginData = require('../fixtures/login_data.json')
 const user = require('../support/commons.js').USERS
 import ProductPage from '../support/product_page/actions.js'
+import GlobalActions from '../support/commons.js'
+const strings = require('../support/commons.js').STRINGS
 
-describe ('Login page test', () => {
-    // here you create you tests case in one group to run
+
+describe('Check Elements Page', () => {
 
     beforeEach (() => {
-
-        cy.viewport(2560, 1440)
-        LoginPage.accessLoginPage()
-
-    })
-
-    // it('Login with multiple users', () => {
-
-    //     use when testing multiple users (configured in fixtures/login_data.json)
-
-    //     cy.get(loginData).each((param) => {
-    //         LoginPage.doLogin(param.user, param.pwd)
-    //     })
-    // })
-
-    it('Check if the page is online', () => {
-        LoginPage.titleLoginPage()
-        LoginPage.checkLoadImages()
+        GlobalActions.resolutionPage()
+        GlobalActions.acessPage()
+        GlobalActions.checkLoadImages()
     })
 
     it('Check Username and Password Field', () => {
@@ -39,8 +26,49 @@ describe ('Login page test', () => {
         LoginPage.checkBtnLogin()
     })
 
+}) 
+
+describe ('Do login', () => {
+
+    beforeEach (() => {
+        GlobalActions.resolutionPage()
+        GlobalActions.acessPage()
+        GlobalActions.checkLoadImages()
+    })
+
+    it('Login with multiple users', () => {
+        cy.get(loginData).each((param) => {
+            LoginPage.doLogin(param.user, param.pwd)
+        })
+    })
+
     it('Login with success', () => {
         LoginPage.doLogin(user.standard_user, user.password)
+        GlobalActions.checkUrl(strings.productsPath)
+        GlobalActions.checkLoadImages()
+    })
+
+    it('Login with problem user', () => {
+        LoginPage.doLogin(user.problem_user, user.password)
+        GlobalActions.checkUrl(strings.productsPath)
+        GlobalActions.checkLoadImages()
+    })
+
+    it('Login with performance glitch', () => {
+        LoginPage.doLogin(user.performance_glitch_user, user.password)
+        GlobalActions.checkUrl(strings.productsPath)
+        GlobalActions.checkLoadImages()
+    })
+
+})
+
+
+describe('Alerts test', () => {
+
+    beforeEach (() => {
+        GlobalActions.resolutionPage()
+        GlobalActions.acessPage()
+        GlobalActions.checkLoadImages()
     })
 
     it('Try login with locked user', () => {
@@ -59,12 +87,4 @@ describe ('Login page test', () => {
         LoginPage.pressBtnLogin()
         LoginPage.checkPasswordRequiredMessage()
     })
-
-    it.only('procuctTest', () => {
-        LoginPage.doLogin(user.standard_user, user.password)
-        ProductPage.teste()
-    })
-
-
-    
 })

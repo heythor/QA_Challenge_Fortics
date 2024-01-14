@@ -5,9 +5,11 @@ export const STRINGS = {
     backpack : 'Sauce Labs Backpack',
     backpackDescribe : 'carry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.',
     dolarSimbol : '$',
-    price2999 : '29.99',
     addToCart : 'ADD TO CART',
-    remove : 'REMOVE'
-
-
+    remove : 'REMOVE',
+    filterNameAZ : 'Name (A to Z)',
+    filterNameZA : 'Name (Z to A)',
+    filterLH : 'Price (low to high)',
+    filterHL : 'Price (high to low)',
+    productsListTitle : 'Products'
 }

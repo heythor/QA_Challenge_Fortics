@@ -1,7 +1,6 @@
 
 export const STRINGS = {
     websitePath : 'https://www.saucedemo.com/v1/',
-    websiteTitle : 'Swag Labs',
     userNameHint : 'Username',
     btnLoginTxt : 'LOGIN',
     epicSadFace : 'Epic sadface: ',

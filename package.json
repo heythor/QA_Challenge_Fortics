@@ -6,6 +6,7 @@
   "author": "HeitorPeixoto",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^8.3.1",
     "cypress": "^13.6.2",
     "webpack": "^5.88.1"
   }

@@ -11,14 +11,6 @@ const beVisible = 'be.visible'
 
 class LoginPage {
 
-    accessLoginPage() {
-        cy.visit(strings.websitePath)
-    }
-
-    titleLoginPage() {
-        cy.title(strings.websiteTitle)
-    }
-
     checkUsernameField() {
         cy.get(elements.userNameField)
     }
@@ -43,14 +35,6 @@ class LoginPage {
         cy.get(elements.btnLogin).contains(strings.btnLoginTxt).click()
     }
 
-    checkLoadImages() {
-        cy.get('img').each(($img) => {
-            cy.wrap($img).scrollIntoView().should(globalStrings.beVisible);
-            expect($img[0].naturalWidth).to.be.greaterThan(0);
-            expect($img[0].naturalHeight).to.be.greaterThan(0);
-            });
-    }
-
     doLogin(username, password) {
         this.fillUsernameField(username)
         this.fillPasswordField(password)
@@ -67,6 +51,7 @@ class LoginPage {
     checkUsernameRequiredMessage() {
         cy.get(elements.error).contains(strings.epicSadFace).contains(strings.userNameRequired)
     }
+
 }
 
 export default new LoginPage()
